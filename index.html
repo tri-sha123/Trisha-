@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>The MagicPages: A Web-based Kids Story Library</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h1>The MagicPages: A Web-based Kids Story Library</h1>
+      <div class="nav-buttons">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('login')">Login</button>
+        <button onclick="showSection('register')">Register</button>
+      </div>
+    </nav>
+
+    <section id="home" class="active">
+      <h2>Welcome to Story Book Library</h2>
+      <div class="filter-container">
+        <button onclick="toggleFilter()" class="filter-btn">Filter Stories</button>
+        <div id="filterPopup" class="filter-popup">
+          <div class="filter-content">
+            <h3>Filter by Title</h3>
+            <div id="filterList"></div>
+          </div>
+        </div>
+      </div>
+      <p>Discover a world of stories at your fingertips.</p>
+      <div class="book-grid">
+        <div class="book">
+          <img src="https://images.unsplash.com/photo-1600189261867-30e5ffe7b8da?w=150" alt="Harry Potter">
+          <h3>Harry Potter</h3>
+          <p>By J.K. Rowling</p>
+          <p class="genre">Fantasy</p>
+          <button class="read-more" onclick="toggleStory(this)">Read Story</button>
+          <div class="story">Harry Potter discovers he's a wizard on his 11th birthday and is invited to attend Hogwarts School of Witchcraft and Wizardry. Along with his new friends Ron and Hermione, Harry begins to unravel the mystery of the Sorcerer's Stone and his own past, while facing the dark wizard who killed his parents.</div>
+        </div>
+        <div class="book">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=150" alt="The Little Prince">
+          <h3>The Little Prince</h3>
+          <p>By Antoine de Saint-Exupéry</p>
+          <p class="genre">Children's Literature</p>
+          <button class="read-more" onclick="toggleStory(this)">Read Story</button>
+          <div class="story">A pilot stranded in the desert meets a young prince who tells him about his adventures traveling through space. The prince shares wisdom about love, friendship, and human nature as he recounts his journeys to various planets and his special relationship with a rose on his home asteroid.</div>
+        </div>
+        <div class="book">
+          <img src="https://images.unsplash.com/photo-1601640365825-66327247a242?w=150" alt="Alice in Wonderland">
+          <h3>Alice in Wonderland</h3>
+          <p>By Lewis Carroll</p>
+          <p class="genre">Fantasy</p>
+          <button class="read-more" onclick="toggleStory(this)">Read Story</button>
+          <div class="story">Alice follows a white rabbit down a rabbit hole into a magical wonderland. There she encounters peculiar characters like the Mad Hatter, the Cheshire Cat, and the Queen of Hearts. Through her adventures, Alice learns to question reality and embrace the absurd while growing in confidence.</div>
+        </div>
+        <div class="book">
+          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=150" alt="The Gruffalo">
+          <h3>The Gruffalo</h3>
+          <p>By Julia Donaldson</p>
+          <p class="genre">Children's</p>
+          <button class="read-more" onclick="toggleStory(this)">Read Story</button>
+          <div class="story">A clever mouse takes a walk through the woods, encountering various predators. To deter them from eating him, he invents a fearsome creature called the Gruffalo. To his surprise, he eventually meets a real Gruffalo! Using his wit, the mouse manages to convince even the Gruffalo that he is the scariest creature in the woods.</div>
+        </div>
+        <div class="book">
+          <img src="https://images.unsplash.com/photo-1533561797500-4fad4750814e?w=150" alt="Matilda">
+          <h3>Matilda</h3>
+          <p>By Roald Dahl</p>
+          <p class="genre">Children's</p>
+          <button class="read-more" onclick="toggleStory(this)">Read Story</button>
+          <div class="story">Matilda is a brilliant young girl with negligent parents and a terrifying school principal. She discovers she has telekinetic powers and uses them to help her beloved teacher Miss Honey and stand up to injustice. Through books and learning, she finds the strength to change her destiny.</div>
+        </div>
+        <div class="book">
+          <img src="https://images.unsplash.com/photo-1633477189729-9290b3261d0a?w=150" alt="Where the Wild Things Are">
+          <h3>Where the Wild Things Are</h3>
+          <p>By Maurice Sendak</p>
+          <p class="genre">Picture Book</p>
+          <button class="read-more" onclick="toggleStory(this)">Read Story</button>
+          <div class="story">When Max misbehaves and is sent to bed without supper, his room transforms into a magical forest. He sails to an island where the Wild Things live and becomes their king. After a wild rumpus, Max begins to miss home and returns to find his supper waiting - still warm.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="login">
+      <h2>Login</h2>
+      <div class="dashboard-login">
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Login</button>
+        </form>
+        <div class="dashboard-preview">
+          <h3>Dashboard Preview</h3>
+          <p>Login to access:</p>
+          <ul>
+            <li>Personal Reading List</li>
+            <li>Reading Progress</li>
+            <li>Favorite Stories</li>
+            <li>Reading History</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="dashboard">
+      <h2>My Dashboard</h2>
+      <div class="dashboard-content">
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <h3>Books Read</h3>
+            <p>5</p>
+          </div>
+          <div class="stat-card">
+            <h3>Reading Time</h3>
+            <p>3.5 hrs</p>
+          </div>
+          <div class="stat-card">
+            <h3>Favorites</h3>
+            <p>3</p>
+          </div>
+        </div>
+        <div class="reading-list">
+          <h3>My Reading List</h3>
+          <ul id="userReadingList">
+            <!-- Will be populated by JavaScript -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="register">
+      <h2>Register</h2>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="admin">
+      <h2>Admin Panel</h2>
+      <div class="admin-controls">
+        <button onclick="addBook()">Add Book</button>
+        <button onclick="manageUsers()">Manage Users</button>
+      </div>
+      <div id="adminContent"></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
